@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random background</title>
+</head>
+<style>
+    * {
+        transition-duration: 1.5s;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+    h1,
+    h4 {
+        padding: 10px;
+        width: fit-content;
+        border-radius: 10px;
+        background-color: rgba(255, 192, 203, 0.319);
+        margin: 20px;
+        border: 0.5px solid rgba(255, 255, 255, 0.311);
+    }
+    
+    h4:hover,
+    h1:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+    
+    footer {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 00;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<body>
+
+    <h1 onClick="copyCode()">#FFFFF</h1>
+    <h4 onClick="changeHex()">next</h4>
+    <footer><a href="">vignesh-kundar</a></footer>
+    <script>
+        var h1 = document.querySelector("h1"),
+            hexcode = "#fffff";
+        const copyCode = () => {
+            navigator.clipboard.writeText(hexcode);
+            alert(`Text copied ` + hexcode);
+        }
+        setInterval(changeHex = () => {
+            hexcode = "#" + Math.floor(16777215 * Math.random()).toString(16).padEnd(6, "0"), document.body.style.backgroundColor = hexcode, h1.innerText = hexcode
+        }, 5e3);
+    </script>
+</body>
+
+</html>
